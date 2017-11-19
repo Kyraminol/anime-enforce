@@ -12,7 +12,7 @@ def get_requirements():
 
 setup(
     name="anime-enforce",
-    version="0.1.0",
+    version="0.1.1",
     author="Kyraminol Endyeran",
     author_email="kyraminari@gmail.com",
     description="Unofficial API for animeforce.org.",
