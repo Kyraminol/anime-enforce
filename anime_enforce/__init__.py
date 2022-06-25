@@ -50,6 +50,10 @@ class Anime:
         result = {}
         for tab in [x.attrs["href"] for x in html.find(".servers-container #nav-tab > a")]:
             elements = html.find(f"{tab} > div > a")
+            for chunk in [x.attrs["href"] for x in html.find(f"{tab} #pills-tab a")]:
+                elements_chunk = html.find(f"{tab} #pills-tabContent {chunk} > a")
+                if len(elements_chunk) > 0:
+                    elements += elements_chunk
             temp = []
             for index, element in enumerate(elements):
                 temp.append(Episode(element.absolute_links.pop(), index+1, tab[5:].lower()))
